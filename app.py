@@ -3,10 +3,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def home(): 
-    return '<h1>Welcome to Home</h1>'
+    return render_template('home.html')
 
 
-@app.route('/login')
+@app.route('/login', methods=['POST', 'GET'])
 def login(): 
     return render_template('login_page.html')
 
