@@ -5,13 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
 </head>
+<style>
+    .fieldset1 {
+        display: inline-block;
+        margin-left: 2px;
+        margin-right: 2px;
+        padding-top: 0.35em;
+        padding-bottom: 0.625em;
+        padding-left: 0.75em;
+        padding-right: 0.75em;
+        border: 2px groove (internal value);
+    }
+</style>
 <body>
     <h1>Login Page:</h1>
     <p>This is the page in which you should log into</p>
     <form action="#" method="post">
-        <p>Name:</p>
-        <input type="text" name="nm">
-        <input type="submit" value="submit">
+        <fieldset class="fieldset1">
+            <p>Name:</p>
+            <input type="text" name="nm">
+            <input type="submit" value="submit">
+        </fieldset>
+    </form>
+
+
+
+    <form action="#" method="post">
+        <fieldset class="fieldset1">
+            <label for="job">Job Type:</label>
+            <input type="text" id="job" name="job">
+            <button type="button" onclick="printInput()">Click Me</button>
+        </fieldset>
     </form>
 </body>
+<script>
+function printInput() {
+    var value = document.getElementById("job").value;
+    alert("Entered Job Type: " + value);
+    console.log(value); // Also prints in browser console
+}
+</script>
 </html>
