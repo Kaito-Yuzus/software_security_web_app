@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Root Page</title>
 </head>
 <body>
-    <h1>This is the home page</h1>
-    <h2><a href="http://localhost:5000//login">To Login</a></h2>
+    <h1>Root Page</h1>
+    <h2>List of Developers</h2>
+    {%for name in names%}
+    <p>{{name}}</p> 
+    {%endfor%}
+    <p></p>
 </body>
 </html>
