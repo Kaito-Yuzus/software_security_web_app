@@ -6,11 +6,17 @@ from flask_login import UserMixin
 rel_path_templates = r'software_security_web_app\src\templates'
 ab_path_templates = os.path.abspath(rel_path_templates)
 
+rel_path_instances = r'software_security_web_app\src\instances'
+ab_path_instances = os.path.abspath(rel_path_instances)
+
+os.makedirs(ab_path_instances, exist_ok=True)
+
 app = Flask(__name__, template_folder=ab_path_templates)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///default.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = fr'sqlite:///{ab_path_instances}\default.db'
 app.config['SQLALCHEMY_BINDS'] = {
-    'users': r'sqlite:///C:\Users\Stinky\Desktop\dev_projects\instance\users.db',
-    'profile_pics': r'sqlite:///C:\Users\Stinky\Desktop\dev_projects\instance\profile_pics.db'
+    'users': fr'sqlite:///{ab_path_instances}\users.db',
+    'profile_pics': fr'sqlite:///{ab_path_instances}\profile_pics.db',
+    'user_gamelists': fr'sqlite:///{ab_path_instances}\game_lists.db',
 }
 app.config['SECRET_KEY']= 'PASSWORD'
 
@@ -23,8 +29,16 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(10), unique = True, nullable = False)
     password = db.Column(db.String(8), unique = False, nullable = False)
 
+class Games(UserMixin, db.Model):
+    __bind_key__ = 'user_gamelists'
+    __tablename__ = 'user_gamelists'
+    id = db.Column(db.Integer, primary_key = True)
+    user = db.Column(db.Integer, unique = True, nullable = False)
+    fav_game = db.Column(db.String(100), unique = False, nullable = False)
+    
+
 with app.app_context(): 
-    db.create_all(bind_key= ['users','profile_pics'])
+    db.create_all(bind_key= ['users','profile_pics', 'user_gamelists'])
 
 @app.route('/')
 def home(): 
@@ -46,10 +60,6 @@ def login():
             return redirect(url_for('login'))
    
    return render_template('login_page.html') 
-
-
-
-
 
 
 
@@ -77,7 +87,16 @@ def welcome():
     if 'user_id' not in session:
         flash("You must be logged in to access this page.", "warning")
         return redirect(url_for('login'))
-    return render_template('welcome.html')
+    
+    user_id = session.get('user_id')
+    
+    game_entry = Games.query.filter_by(user=user_id).first()
+    if game_entry:
+        fav_game = game_entry.fav_game
+    else: 
+        fav_game = None
+    
+    return render_template('welcome.html', fav_game=fav_game)
 
 
 if __name__ == '__main__':
