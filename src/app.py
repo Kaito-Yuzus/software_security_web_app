@@ -89,7 +89,8 @@ def welcome():
         return redirect(url_for('login'))
     
     user_id = session.get('user_id')
-    
+    # user_id = request.args.get('user_id')
+
     game_entry = Games.query.filter_by(user=user_id).first()
     if game_entry:
         fav_game = game_entry.fav_game
