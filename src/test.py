@@ -1,8 +1,9 @@
 from datetime import * 
 
 
-start_time = datetime(2026, 3, 25, 18, 0, tzinfo=timezone.utc)
+start_time = datetime(2026, 3, 25, 18, 0)
 
-elapsed = datetime.now(timezone.utc) - start_time 
+elapsed = datetime.now() - start_time 
 
 print(elapsed)
+print(datetime.now())
