@@ -52,10 +52,10 @@ class FailedLogin(db.Model):
     username = db.Column(db.String(10), nullable=False)
     ip_address = db.Column(db.String(50), nullable=False)
     attempts = db.Column(db.Integer, default=0)
-    last_attempt = db.Column(db.DateTime, default=datetime.utcnow)
+    last_attempt = db.Column(db.DateTime, default=None)
 
 with app.app_context(): 
-    db.create_all(bind_key= ['users','profile_pics', 'user_gamelists', 'failed_logins'])
+    db.create_all(bind_key= ['users', 'user_gamelists', 'failed_logins'])
 
 @app.route('/')
 def home(): 
