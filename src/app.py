@@ -2,6 +2,14 @@ import os
 from flask import Flask, render_template, request, flash, redirect, session, abort, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
+import logging
+from datetime import datetime, timedelta
+
+logging.basicConfig(
+    filename=os.path.abspath(r'software_security_web_app\src\login_attempts.log'),
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 rel_path_templates = r'software_security_web_app\src\templates'
 ab_path_templates = os.path.abspath(rel_path_templates)
@@ -17,6 +25,7 @@ app.config['SQLALCHEMY_BINDS'] = {
     'users': fr'sqlite:///{ab_path_instances}\users.db',
     'profile_pics': fr'sqlite:///{ab_path_instances}\profile_pics.db',
     'user_gamelists': fr'sqlite:///{ab_path_instances}\game_lists.db',
+    'failed_logins': fr'sqlite:///{ab_path_instances}\login_throttle.db',
 }
 app.config['SECRET_KEY']= 'PASSWORD'
 
@@ -36,13 +45,21 @@ class Games(UserMixin, db.Model):
     user = db.Column(db.Integer, unique = True, nullable = False)
     fav_game = db.Column(db.String(100), unique = False, nullable = False)
     
+class FailedLogin(db.Model):
+    __tablename__ = 'failed_logins'
+    __bind_key__ = 'failed_logins'
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(10), nullable=False)
+    ip_address = db.Column(db.String(50), nullable=False)
+    attempts = db.Column(db.Integer, default=0)
+    last_attempt = db.Column(db.DateTime, default=datetime.utcnow)
 
 with app.app_context(): 
-    db.create_all(bind_key= ['users','profile_pics', 'user_gamelists'])
+    db.create_all(bind_key= ['users','profile_pics', 'user_gamelists', 'failed_logins'])
 
 @app.route('/')
 def home(): 
-    names = ['john', 'mary', 'will']
+    names = ['Developer: john', 'Database Manager: mary', 'Log Monitor: will']
     return render_template('home.html', names=names)
 
 @app.route('/login', methods=['POST','GET'])
@@ -50,12 +67,17 @@ def login():
    if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
+        
+        ip = request.remote_addr
+
         user = User.query.filter_by(username=username, password=password).first()
         if user:
             # Successful login
+            logging.info(f"SUCCESSFUL login: user={username}, ip={ip}")
             session['user_id'] = user.id  # Store user in session
             return redirect(url_for('welcome'))
         else:
+            logging.warning(f"FAILED login: user={username}, ip={ip}")
             flash("Invalid username or password", "danger")
             return redirect(url_for('login'))
    
