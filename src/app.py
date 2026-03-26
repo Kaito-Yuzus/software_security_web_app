@@ -62,26 +62,53 @@ def home():
     names = ['Developer: john', 'Database Manager: mary', 'Log Monitor: will']
     return render_template('home.html', names=names)
 
+MAX_TRIES= 2
+TIMEOUT = 5
+
 @app.route('/login', methods=['POST','GET'])
 def login():
-   if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
+    if request.method == 'POST':
+        username = request.form.get('username', '').strip()
+        password = request.form.get('password', '').strip()
         
         ip = request.remote_addr
+        now = datetime.now()
 
-        user = User.query.filter_by(username=username, password=password).first()
-        if user:
-            # Successful login
-            logging.info(f"SUCCESSFUL login: user={username}, ip={ip}")
-            session['user_id'] = user.id  # Store user in session
-            return redirect(url_for('welcome'))
-        else:
-            logging.warning(f"FAILED login: user={username}, ip={ip}")
-            flash("Invalid username or password", "danger")
-            return redirect(url_for('login'))
-   
-   return render_template('login_page.html') 
+        user_login = User.query.filter_by(username=username, password=password).first()
+        user_exist = User.query.filter_by(username=username).first()
+        track_login = FailedLogin.query.filter_by(username=username).first()
+        if user_exist:
+            if now >= track_login.last_attempt + timedelta(minutes=TIMEOUT):
+                if user_login:    
+                    # Successful login
+                    track_login.attempts = 0
+                    logging.info(f'SUCCESSFUL login: user={username}, ip={ip}')
+                    session['user_id'] = user_login.id  # Store user in session
+                    db.session.commit() 
+                    return redirect(url_for('welcome'))
+                elif user_exist:
+                    
+                    if track_login.attempts >= MAX_TRIES: 
+                        logging.warning(f'Too many attempts timeout for {ip} using {username}')
+                        flash('Try again another time')
+                    #Not successful login
+                    else: 
+                        track_login.attempts += 1
+                        track_login.last_attempt = now
+                        db.session.commit() 
+                    logging.warning(f'FAILED login: user={username}, ip={ip}')
+                    flash('Invalid username or password')
+
+                    return redirect(url_for('login'))
+                else:
+                    flash('Invalid username or password')
+                    logging.warning(f'{ip} attempted to login as {username}')
+                    return redirect(url_for('login'))
+            else: 
+                logging.warning(f'{ip} attempted to login as {username} while in timeout')
+        else: 
+            logging.warning(f'{ip} attempted to login as {username}')
+    return render_template('login_page.html') 
 
 
 
@@ -101,13 +128,12 @@ def register():
         return redirect(url_for('home'))
 
     return render_template('register_page.html')
-   
 
 
 @app.route('/welcome')
 def welcome():
     if 'user_id' not in session:
-        flash("You must be logged in to access this page.", "warning")
+        flash('You must be logged in to access this page.', 'warning')
         return redirect(url_for('login'))
     
     user_id = session.get('user_id')
