@@ -19,3 +19,6 @@
 2026-03-26 17:32:25,760 - WARNING - Account locked: user=crep, ip=127.0.0.1, attempts=2
 2026-03-26 17:32:25,761 - INFO - 127.0.0.1 - - [26/Mar/2026 17:32:25] "[32mPOST /login HTTP/1.1[0m" 302 -
 2026-03-26 17:32:25,767 - INFO - 127.0.0.1 - - [26/Mar/2026 17:32:25] "GET /login HTTP/1.1" 200 -
+2026-03-26 17:33:30,802 - WARNING - Account locked: user=crep, ip=127.0.0.1, attempts=2
+2026-03-26 17:33:30,802 - INFO - 127.0.0.1 - - [26/Mar/2026 17:33:30] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-03-26 17:33:30,809 - INFO - 127.0.0.1 - - [26/Mar/2026 17:33:30] "GET /login HTTP/1.1" 200 -
