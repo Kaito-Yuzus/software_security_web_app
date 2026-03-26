@@ -51,7 +51,7 @@ class FailedLogin(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(10), nullable=False)
     ip_address = db.Column(db.String(50), nullable=False)
-    attempts = db.Column(db.Integer, default=0)
+    attempts = db.Column(db.Integer, default=None)
     last_attempt = db.Column(db.DateTime, default=None)
 
 with app.app_context(): 
@@ -77,38 +77,38 @@ def login():
         user_login = User.query.filter_by(username=username, password=password).first()
         user_exist = User.query.filter_by(username=username).first()
         track_login = FailedLogin.query.filter_by(username=username).first()
-        if user_exist:
-            if now >= track_login.last_attempt + timedelta(minutes=TIMEOUT):
-                if user_login:    
-                    # Successful login
-                    track_login.attempts = 0
-                    logging.info(f'SUCCESSFUL login: user={username}, ip={ip}')
-                    session['user_id'] = user_login.id  # Store user in session
-                    db.session.commit() 
-                    return redirect(url_for('welcome'))
-                elif user_exist:
-                    
-                    if track_login.attempts >= MAX_TRIES: 
-                        logging.warning(f'Too many attempts timeout for {ip} using {username}')
-                        flash('Try again another time')
-                    #Not successful login
-                    else: 
-                        track_login.attempts += 1
-                        track_login.last_attempt = now
-                        db.session.commit() 
-                    logging.warning(f'FAILED login: user={username}, ip={ip}')
-                    flash('Invalid username or password')
-
-                    return redirect(url_for('login'))
-                else:
-                    flash('Invalid username or password')
-                    logging.warning(f'{ip} attempted to login as {username}')
-                    return redirect(url_for('login'))
-            else: 
-                logging.warning(f'{ip} attempted to login as {username} while in timeout')
-        else: 
+        
+        if user_exist:            
+            if track_login.last_attempt is None or now >= track_login.last_attempt + timedelta(minutes=TIMEOUT):
+                track_login.attempts = 0
+                db.session.commit()
+            
+            if  track_login.attempts >= MAX_TRIES:
+                logging.warning(f'Account locked: user={username}, ip={ip}, attempts={track_login.attempts}')
+                flash('Too many failed attempts. Please try again later.')
+                return redirect(url_for('login'))
+            
+            if user_login:    
+                # Successful login
+                track_login.attempts = 0
+                track_login.last_attempt = now
+                logging.info(f'SUCCESSFUL login: user={username}, ip={ip}')
+                session['user_id'] = user_login.id
+                db.session.commit() 
+                return redirect(url_for('welcome'))
+            elif user_exist:
+                track_login.attempts += 1
+                track_login.last_attempt = now
+                db.session.commit()
+                logging.warning(f'FAILED login: user={username}, ip={ip}, attempts={track_login.attempts}')
+                flash('Invalid username or password')
+                return redirect(url_for('login'))
+        else:
+            flash('Invalid username or password')
             logging.warning(f'{ip} attempted to login as {username}')
-    return render_template('login_page.html') 
+            return redirect(url_for('login'))
+    
+    return render_template('login_page.html')
 
 
 

@@ -62,7 +62,7 @@ with app.app_context():
     
     
 
-    track_login = FailedLogin.query.filter_by(username='admin').first()
+    track_login = FailedLogin.query.filter_by(username='crep').first()
     track_login.attempts = 1  
     track_login.last_attempt = datetime.now()      
 
