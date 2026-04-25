@@ -1,5 +1,6 @@
 from flask import Flask
 from flask.sessions import SecureCookieSessionInterface
+import secrets
 
 # Create a Flask app exactly like your real app
 app = Flask(__name__)
@@ -16,3 +17,4 @@ cookie_value = serializer.dumps(session_data)
 
 print("Set this as your 'session' cookie in the browser:")
 print(cookie_value)
+print(secrets.token_hex(32))

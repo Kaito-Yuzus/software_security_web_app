@@ -25,3 +25,171 @@
 2026-03-26 17:53:21,009 - INFO - SUCCESSFUL login: user=crep, ip=127.0.0.1
 2026-03-26 17:53:21,015 - INFO - 127.0.0.1 - - [26/Mar/2026 17:53:21] "[32mPOST /login HTTP/1.1[0m" 302 -
 2026-03-26 17:53:21,026 - INFO - 127.0.0.1 - - [26/Mar/2026 17:53:21] "GET /welcome HTTP/1.1" 200 -
+2026-04-24 16:55:25,797 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-24 16:55:25,797 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-24 16:55:25,800 - INFO -  * Restarting with stat
+2026-04-24 16:55:26,451 - WARNING -  * Debugger is active!
+2026-04-24 16:55:26,454 - INFO -  * Debugger PIN: 526-194-267
+2026-04-24 16:55:45,086 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-24 16:55:45,086 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-24 16:55:45,087 - INFO -  * Restarting with stat
+2026-04-24 16:55:45,727 - WARNING -  * Debugger is active!
+2026-04-24 16:55:45,730 - INFO -  * Debugger PIN: 526-194-267
+2026-04-24 16:55:56,487 - INFO - 127.0.0.1 - - [24/Apr/2026 16:55:56] "GET / HTTP/1.1" 200 -
+2026-04-24 16:55:56,569 - INFO - 127.0.0.1 - - [24/Apr/2026 16:55:56] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-04-24 16:56:00,771 - INFO - 127.0.0.1 - - [24/Apr/2026 16:56:00] "GET /login HTTP/1.1" 200 -
+2026-04-24 16:56:03,820 - WARNING - 127.0.0.1 attempted to login as asdasd
+2026-04-24 16:56:03,821 - INFO - 127.0.0.1 - - [24/Apr/2026 16:56:03] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 16:56:03,828 - INFO - 127.0.0.1 - - [24/Apr/2026 16:56:03] "GET /login HTTP/1.1" 200 -
+2026-04-24 16:56:14,841 - WARNING - FAILED login: user=crep, ip=127.0.0.1, attempts=1
+2026-04-24 16:56:14,842 - INFO - 127.0.0.1 - - [24/Apr/2026 16:56:14] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 16:56:14,849 - INFO - 127.0.0.1 - - [24/Apr/2026 16:56:14] "GET /login HTTP/1.1" 200 -
+2026-04-24 16:56:28,470 - WARNING - FAILED login: user=crep, ip=127.0.0.1, attempts=2
+2026-04-24 16:56:28,470 - INFO - 127.0.0.1 - - [24/Apr/2026 16:56:28] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 16:56:28,477 - INFO - 127.0.0.1 - - [24/Apr/2026 16:56:28] "GET /login HTTP/1.1" 200 -
+2026-04-24 16:56:30,537 - WARNING - Account locked: user=crep, ip=127.0.0.1, attempts=2
+2026-04-24 16:56:30,538 - INFO - 127.0.0.1 - - [24/Apr/2026 16:56:30] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 16:56:30,544 - INFO - 127.0.0.1 - - [24/Apr/2026 16:56:30] "GET /login HTTP/1.1" 200 -
+2026-04-24 16:56:32,466 - WARNING - Account locked: user=crep, ip=127.0.0.1, attempts=2
+2026-04-24 16:56:32,466 - INFO - 127.0.0.1 - - [24/Apr/2026 16:56:32] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 16:56:32,473 - INFO - 127.0.0.1 - - [24/Apr/2026 16:56:32] "GET /login HTTP/1.1" 200 -
+2026-04-24 16:59:59,238 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-24 16:59:59,238 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-24 16:59:59,239 - INFO -  * Restarting with stat
+2026-04-24 16:59:59,870 - WARNING -  * Debugger is active!
+2026-04-24 16:59:59,873 - INFO -  * Debugger PIN: 526-194-267
+2026-04-24 17:00:10,524 - INFO - 127.0.0.1 - - [24/Apr/2026 17:00:10] "GET / HTTP/1.1" 200 -
+2026-04-24 17:00:11,753 - INFO - 127.0.0.1 - - [24/Apr/2026 17:00:11] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:00:14,383 - WARNING - Account locked: user=crep, ip=127.0.0.1, attempts=2
+2026-04-24 17:00:14,383 - INFO - 127.0.0.1 - - [24/Apr/2026 17:00:14] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:00:14,390 - INFO - 127.0.0.1 - - [24/Apr/2026 17:00:14] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:01:33,624 - WARNING - FAILED login: user=crep, ip=127.0.0.1, attempts=1
+2026-04-24 17:01:33,624 - INFO - 127.0.0.1 - - [24/Apr/2026 17:01:33] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:01:33,631 - INFO - 127.0.0.1 - - [24/Apr/2026 17:01:33] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:05:00,610 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-24 17:05:00,611 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-24 17:05:00,613 - INFO -  * Restarting with stat
+2026-04-24 17:05:01,859 - WARNING -  * Debugger is active!
+2026-04-24 17:05:01,863 - INFO -  * Debugger PIN: 526-194-267
+2026-04-24 17:05:03,472 - INFO - 127.0.0.1 - - [24/Apr/2026 17:05:03] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:05:06,849 - INFO - 127.0.0.1 - - [24/Apr/2026 17:05:06] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:05:06,856 - INFO - 127.0.0.1 - - [24/Apr/2026 17:05:06] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:05:08,876 - INFO - 127.0.0.1 - - [24/Apr/2026 17:05:08] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:05:08,883 - INFO - 127.0.0.1 - - [24/Apr/2026 17:05:08] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:05:11,455 - INFO - 127.0.0.1 - - [24/Apr/2026 17:05:11] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:05:11,462 - INFO - 127.0.0.1 - - [24/Apr/2026 17:05:11] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:05:14,201 - INFO - 127.0.0.1 - - [24/Apr/2026 17:05:14] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:05:14,207 - INFO - 127.0.0.1 - - [24/Apr/2026 17:05:14] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:05:16,521 - INFO - 127.0.0.1 - - [24/Apr/2026 17:05:16] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:05:16,532 - INFO - 127.0.0.1 - - [24/Apr/2026 17:05:16] "GET /welcome HTTP/1.1" 200 -
+2026-04-24 17:10:12,592 - INFO -  * Detected change in 'c:\\Users\\Stinky\\Desktop\\dev_projects\\software_security_web_app\\bad_main.py', reloading
+2026-04-24 17:10:12,638 - INFO -  * Restarting with stat
+2026-04-24 17:12:29,983 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-24 17:12:29,983 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-24 17:12:29,984 - INFO -  * Restarting with stat
+2026-04-24 17:12:30,622 - WARNING -  * Debugger is active!
+2026-04-24 17:12:30,626 - INFO -  * Debugger PIN: 526-194-267
+2026-04-24 17:12:36,572 - INFO - 127.0.0.1 - - [24/Apr/2026 17:12:36] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:12:42,312 - INFO - 127.0.0.1 - - [24/Apr/2026 17:12:42] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2026-04-24 17:12:42,419 - INFO - 127.0.0.1 - - [24/Apr/2026 17:12:42] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2026-04-24 17:12:42,419 - INFO - 127.0.0.1 - - [24/Apr/2026 17:12:42] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2026-04-24 17:12:42,432 - INFO - 127.0.0.1 - - [24/Apr/2026 17:12:42] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=c99NiBaUanAUFlJnRHlw HTTP/1.1" 200 -
+2026-04-24 17:12:42,439 - INFO - 127.0.0.1 - - [24/Apr/2026 17:12:42] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2026-04-24 17:12:44,949 - INFO - 127.0.0.1 - - [24/Apr/2026 17:12:44] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:13:47,066 - INFO -  * Detected change in 'c:\\Users\\Stinky\\Desktop\\dev_projects\\software_security_web_app\\bad_main.py', reloading
+2026-04-24 17:13:47,107 - INFO -  * Restarting with stat
+2026-04-24 17:13:47,799 - WARNING -  * Debugger is active!
+2026-04-24 17:13:47,802 - INFO -  * Debugger PIN: 526-194-267
+2026-04-24 17:13:54,699 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-24 17:13:54,699 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-24 17:13:54,701 - INFO -  * Restarting with stat
+2026-04-24 17:13:55,362 - WARNING -  * Debugger is active!
+2026-04-24 17:13:55,365 - INFO -  * Debugger PIN: 526-194-267
+2026-04-24 17:13:57,034 - INFO - 127.0.0.1 - - [24/Apr/2026 17:13:57] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:13:59,269 - INFO - 127.0.0.1 - - [24/Apr/2026 17:13:59] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2026-04-24 17:13:59,371 - INFO - 127.0.0.1 - - [24/Apr/2026 17:13:59] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2026-04-24 17:13:59,372 - INFO - 127.0.0.1 - - [24/Apr/2026 17:13:59] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2026-04-24 17:13:59,383 - INFO - 127.0.0.1 - - [24/Apr/2026 17:13:59] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=rlxTiiGiQTThrlERDsxS HTTP/1.1" 200 -
+2026-04-24 17:15:17,936 - INFO -  * Detected change in 'c:\\Users\\Stinky\\Desktop\\dev_projects\\software_security_web_app\\bad_main.py', reloading
+2026-04-24 17:15:17,977 - INFO -  * Restarting with stat
+2026-04-24 17:15:18,707 - WARNING -  * Debugger is active!
+2026-04-24 17:15:18,710 - INFO -  * Debugger PIN: 526-194-267
+2026-04-24 17:15:21,506 - INFO - 127.0.0.1 - - [24/Apr/2026 17:15:21] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2026-04-24 17:15:21,605 - INFO - 127.0.0.1 - - [24/Apr/2026 17:15:21] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2026-04-24 17:15:21,605 - INFO - 127.0.0.1 - - [24/Apr/2026 17:15:21] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2026-04-24 17:15:21,617 - INFO - 127.0.0.1 - - [24/Apr/2026 17:15:21] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=KhfgFxkq5UcVvk80TEyu HTTP/1.1" 200 -
+2026-04-24 17:15:22,390 - INFO - 127.0.0.1 - - [24/Apr/2026 17:15:22] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:15:25,191 - INFO - 127.0.0.1 - - [24/Apr/2026 17:15:25] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2026-04-24 17:15:25,222 - INFO - 127.0.0.1 - - [24/Apr/2026 17:15:25] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2026-04-24 17:15:25,223 - INFO - 127.0.0.1 - - [24/Apr/2026 17:15:25] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2026-04-24 17:15:25,233 - INFO - 127.0.0.1 - - [24/Apr/2026 17:15:25] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png&s=KhfgFxkq5UcVvk80TEyu HTTP/1.1[0m" 304 -
+2026-04-24 17:15:38,121 - INFO -  * Detected change in 'c:\\Users\\Stinky\\Desktop\\dev_projects\\software_security_web_app\\bad_main.py', reloading
+2026-04-24 17:15:38,170 - INFO -  * Restarting with stat
+2026-04-24 17:15:38,852 - WARNING -  * Debugger is active!
+2026-04-24 17:15:38,856 - INFO -  * Debugger PIN: 526-194-267
+2026-04-24 17:15:39,576 - INFO - 127.0.0.1 - - [24/Apr/2026 17:15:39] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:15:41,481 - INFO - 127.0.0.1 - - [24/Apr/2026 17:15:41] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:15:41,494 - INFO - 127.0.0.1 - - [24/Apr/2026 17:15:41] "GET /welcome HTTP/1.1" 200 -
+2026-04-24 17:15:57,351 - INFO - 127.0.0.1 - - [24/Apr/2026 17:15:57] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:15:57,360 - INFO - 127.0.0.1 - - [24/Apr/2026 17:15:57] "GET /welcome HTTP/1.1" 200 -
+2026-04-24 17:16:02,996 - INFO - 127.0.0.1 - - [24/Apr/2026 17:16:02] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:16:03,005 - INFO - 127.0.0.1 - - [24/Apr/2026 17:16:03] "GET /welcome HTTP/1.1" 200 -
+2026-04-24 17:16:57,252 - INFO - 127.0.0.1 - - [24/Apr/2026 17:16:57] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:16:57,260 - INFO - 127.0.0.1 - - [24/Apr/2026 17:16:57] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:17:32,899 - INFO - 127.0.0.1 - - [24/Apr/2026 17:17:32] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:17:32,908 - INFO - 127.0.0.1 - - [24/Apr/2026 17:17:32] "GET /welcome HTTP/1.1" 200 -
+2026-04-24 17:18:37,157 - INFO - 127.0.0.1 - - [24/Apr/2026 17:18:37] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:18:37,168 - INFO - 127.0.0.1 - - [24/Apr/2026 17:18:37] "GET /welcome HTTP/1.1" 200 -
+2026-04-24 17:20:09,858 - INFO - 127.0.0.1 - - [24/Apr/2026 17:20:09] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:20:09,864 - INFO - 127.0.0.1 - - [24/Apr/2026 17:20:09] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:20:42,640 - INFO - 127.0.0.1 - - [24/Apr/2026 17:20:42] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:20:42,646 - INFO - 127.0.0.1 - - [24/Apr/2026 17:20:42] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:22:17,103 - INFO - 127.0.0.1 - - [24/Apr/2026 17:22:17] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:22:17,149 - INFO - 127.0.0.1 - - [24/Apr/2026 17:22:17] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:22:20,281 - INFO - 127.0.0.1 - - [24/Apr/2026 17:22:20] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:22:20,290 - INFO - 127.0.0.1 - - [24/Apr/2026 17:22:20] "GET /welcome HTTP/1.1" 200 -
+2026-04-24 17:22:25,890 - INFO - 127.0.0.1 - - [24/Apr/2026 17:22:25] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:22:25,899 - INFO - 127.0.0.1 - - [24/Apr/2026 17:22:25] "GET /welcome HTTP/1.1" 200 -
+2026-04-24 17:22:39,655 - INFO - 127.0.0.1 - - [24/Apr/2026 17:22:39] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:22:39,661 - INFO - 127.0.0.1 - - [24/Apr/2026 17:22:39] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:22:42,301 - INFO - 127.0.0.1 - - [24/Apr/2026 17:22:42] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:22:44,349 - INFO - 127.0.0.1 - - [24/Apr/2026 17:22:44] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:22:44,355 - INFO - 127.0.0.1 - - [24/Apr/2026 17:22:44] "GET /login HTTP/1.1" 200 -
+2026-04-24 17:22:55,665 - INFO - 127.0.0.1 - - [24/Apr/2026 17:22:55] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 17:22:55,674 - INFO - 127.0.0.1 - - [24/Apr/2026 17:22:55] "GET /welcome HTTP/1.1" 200 -
+2026-04-24 18:01:59,085 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-04-24 18:01:59,085 - INFO - [33mPress CTRL+C to quit[0m
+2026-04-24 18:01:59,087 - INFO -  * Restarting with stat
+2026-04-24 18:01:59,766 - WARNING -  * Debugger is active!
+2026-04-24 18:01:59,770 - INFO -  * Debugger PIN: 526-194-267
+2026-04-24 18:02:06,083 - INFO - 127.0.0.1 - - [24/Apr/2026 18:02:06] "GET /login HTTP/1.1" 200 -
+2026-04-24 18:02:09,775 - INFO - SUCCESSFUL login: user=crep, ip=127.0.0.1
+2026-04-24 18:02:09,787 - INFO - 127.0.0.1 - - [24/Apr/2026 18:02:09] "[32mPOST /login HTTP/1.1[0m" 302 -
+2026-04-24 18:02:09,798 - INFO - 127.0.0.1 - - [24/Apr/2026 18:02:09] "GET /welcome HTTP/1.1" 200 -
+2026-04-24 18:02:58,173 - INFO - 127.0.0.1 - - [24/Apr/2026 18:02:58] "GET / HTTP/1.1" 200 -
+2026-04-24 18:03:02,004 - INFO - 127.0.0.1 - - [24/Apr/2026 18:03:02] "GET /login HTTP/1.1" 200 -
+2026-04-24 18:03:02,961 - INFO - 127.0.0.1 - - [24/Apr/2026 18:03:02] "[31m[1mGET /registration HTTP/1.1[0m" 405 -
+2026-04-24 18:03:07,936 - INFO - 127.0.0.1 - - [24/Apr/2026 18:03:07] "[31m[1mGET /registration HTTP/1.1[0m" 405 -
+2026-04-24 18:03:21,268 - INFO -  * Detected change in 'c:\\Users\\Stinky\\Desktop\\dev_projects\\software_security_web_app\\src\\app.py', reloading
+2026-04-24 18:03:21,311 - INFO -  * Restarting with stat
+2026-04-24 18:03:21,977 - WARNING -  * Debugger is active!
+2026-04-24 18:03:21,980 - INFO -  * Debugger PIN: 526-194-267
+2026-04-24 18:03:24,490 - INFO - 127.0.0.1 - - [24/Apr/2026 18:03:24] "GET /login HTTP/1.1" 200 -
+2026-04-24 18:03:24,935 - INFO - 127.0.0.1 - - [24/Apr/2026 18:03:24] "GET /registration HTTP/1.1" 200 -
+2026-04-24 18:10:20,105 - INFO - 127.0.0.1 - - [24/Apr/2026 18:10:20] "GET /login HTTP/1.1" 200 -
+2026-04-24 18:10:20,691 - INFO - 127.0.0.1 - - [24/Apr/2026 18:10:20] "GET /registration HTTP/1.1" 200 -
+2026-04-24 18:41:18,864 - INFO - 127.0.0.1 - - [24/Apr/2026 18:41:18] "GET /registration HTTP/1.1" 200 -
+2026-04-24 18:41:20,922 - INFO - 127.0.0.1 - - [24/Apr/2026 18:41:20] "GET / HTTP/1.1" 200 -
+2026-04-24 18:42:35,611 - INFO -  * Detected change in 'c:\\Users\\Stinky\\Desktop\\dev_projects\\software_security_web_app\\src\\app.py', reloading
+2026-04-24 18:42:35,690 - INFO -  * Restarting with stat
+2026-04-24 18:42:36,753 - WARNING -  * Debugger is active!
+2026-04-24 18:42:36,756 - INFO -  * Debugger PIN: 526-194-267
+2026-04-24 18:42:36,796 - INFO - 127.0.0.1 - - [24/Apr/2026 18:42:36] "GET / HTTP/1.1" 200 -
+2026-04-24 18:42:37,121 - INFO - 127.0.0.1 - - [24/Apr/2026 18:42:37] "GET / HTTP/1.1" 200 -

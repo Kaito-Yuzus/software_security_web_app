@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 import logging
 from datetime import datetime, timedelta
+import secrets
 
 logging.basicConfig(
     filename=os.path.abspath(r'software_security_web_app\src\login_attempts.log'),
@@ -27,7 +28,7 @@ app.config['SQLALCHEMY_BINDS'] = {
     'user_gamelists': fr'sqlite:///{ab_path_instances}\game_lists.db',
     'failed_logins': fr'sqlite:///{ab_path_instances}\login_throttle.db',
 }
-app.config['SECRET_KEY']= 'PASSWORD'
+app.config['SECRET_KEY']= secrets.token_hex(32)
 
 db = SQLAlchemy(app)
 
@@ -59,7 +60,7 @@ with app.app_context():
 
 @app.route('/')
 def home(): 
-    names = ['Developer: john', 'Database Manager: mary', 'Log Monitor: will']
+    names = ['Developer: Crep', 'Database Manager: Admin', 'Log Monitor: Admin']
     return render_template('home.html', names=names)
 
 MAX_TRIES= 2
@@ -114,7 +115,7 @@ def login():
 
 
 
-@app.route('/registration', methods=['POST','GET'])
+@app.route('/registration', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
         #Make this insecure
